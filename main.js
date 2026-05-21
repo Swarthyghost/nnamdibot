@@ -120,7 +120,7 @@ chatForm.addEventListener('submit', async (e) => {
   const typingIndicator = addTypingIndicator();
   setRobotState('thinking');
   
-  const API_URL = import.meta.env.DEV ? 'http://localhost:8000' : '';
+  const API_URL = import.meta.env.DEV ? `http://${window.location.hostname}:8000` : '';
   
   try {
     const response = await fetch(`${API_URL}/api/chat`, {
