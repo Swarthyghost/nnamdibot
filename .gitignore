@@ -1,0 +1,33 @@
+# Python virtual environments & packages
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Node.js dependencies & builds
+node_modules/
+frontend/node_modules/
+dist/
+frontend/dist/
+
+# Environment files and credentials
+.env
+.env.local
+.env.*.local
+*.env
+
+# IDE and OS specific
+.DS_Store
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Notebook checkpoint files
+.ipynb_checkpoints/

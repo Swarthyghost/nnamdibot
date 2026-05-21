@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>nnamdibot - Health Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <!-- Premium glowing background ambient spots -->
+    <div class="ambient-glow spot-1"></div>
+    <div class="ambient-glow spot-2"></div>
+
+    <div class="app-container">
+      <!-- Left Sidebar Container -->
+      <aside class="sidebar-container" id="sidebarContainer">
+        <div class="sidebar-header">
+          <div class="logo-area">
+            <span class="logo-icon">🤖</span>
+            <h2>nnamdibot</h2>
+          </div>
+          <span class="status-badge" id="botStatus">
+            <span class="status-dot"></span>
+            <span class="status-text">Online</span>
+          </span>
+        </div>
+
+        <div class="robot-avatar-wrapper">
+          <!-- Premium Animated SVG Robot Mascot -->
+          <svg class="robot-svg" id="robotAvatar" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
+                <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#38bdf8"/>
+                <stop offset="50%" stop-color="#4f46e5"/>
+                <stop offset="100%" stop-color="#6366f1"/>
+              </linearGradient>
+              <linearGradient id="metalGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.2"/>
+                <stop offset="100%" stop-color="#000000" stop-opacity="0.3"/>
+              </linearGradient>
+              <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                <feMerge>
+                  <feMergeNode in="coloredBlur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+            
+            <circle cx="100" cy="115" r="75" fill="url(#glow)"/>
+            
+            <!-- Robot group with float animation -->
+            <g class="robot-group">
+              <!-- Floating shadow below robot -->
+              <ellipse class="robot-shadow" cx="100" cy="175" rx="35" ry="6" fill="#000" opacity="0.35"/>
+              
+              <!-- Left Arm -->
+              <path class="robot-arm arm-left" d="M 52 120 C 32 120, 30 140, 42 142 C 52 144, 56 130, 52 124" stroke="url(#bodyGrad)" stroke-width="7" stroke-linecap="round" fill="none"/>
+              <!-- Right Arm -->
+              <path class="robot-arm arm-right" d="M 148 120 C 168 120, 170 140, 158 142 C 148 144, 144 130, 148 124" stroke="url(#bodyGrad)" stroke-width="7" stroke-linecap="round" fill="none"/>
+              
+              <!-- Robot Antenna -->
+              <g class="robot-antenna-group">
+                <line x1="100" y1="52" x2="100" y2="28" stroke="#64748b" stroke-width="4" stroke-linecap="round"/>
+                <circle class="robot-antenna-tip" cx="100" cy="24" r="8" fill="#38bdf8" filter="url(#neonGlow)"/>
+              </g>
+              
+              <!-- Robot Ears -->
+              <rect class="robot-ear ear-left" x="50" y="66" width="8" height="18" rx="4" fill="#475569"/>
+              <rect class="robot-ear ear-right" x="142" y="66" width="8" height="18" rx="4" fill="#475569"/>
+              
+              <!-- Robot Torso / Body -->
+              <rect class="robot-body" x="65" y="96" width="70" height="56" rx="18" fill="url(#bodyGrad)"/>
+              <!-- Shiny metal overlay -->
+              <rect x="65" y="96" width="70" height="56" rx="18" fill="url(#metalGrad)" style="mix-blend-mode: overlay;"/>
+              
+              <!-- Pulse Core / Health Heart -->
+              <path class="robot-heart" d="M 100 126 C 96 120, 89 120, 89 126 C 89 132, 100 140, 100 140 C 100 140, 111 132, 111 126 C 111 120, 104 120, 100 126 Z" fill="#10b981" filter="url(#neonGlow)"/>
+              
+              <!-- Robot Neck -->
+              <rect x="91" y="88" width="18" height="10" rx="3" fill="#475569"/>
+              
+              <!-- Robot Head Group -->
+              <g class="robot-head-group">
+                <rect class="robot-head" x="56" y="46" width="88" height="48" rx="20" fill="#0f172a" stroke="#475569" stroke-width="2.5"/>
+                
+                <!-- Visor Screen -->
+                <rect class="robot-visor" x="63" y="52" width="74" height="36" rx="12" fill="#020617" stroke="#1e293b" stroke-width="1.5"/>
+                
+                <!-- Eyes -->
+                <g class="robot-eyes">
+                  <ellipse class="robot-eye eye-left" cx="87" cy="70" rx="6" ry="6" fill="#38bdf8" filter="url(#neonGlow)"/>
+                  <ellipse class="robot-eye eye-right" cx="113" cy="70" rx="6" ry="6" fill="#38bdf8" filter="url(#neonGlow)"/>
+                </g>
+              </g>
+            </g>
+          </svg>
+        </div>
+
+        <div class="sidebar-content">
+          <div class="bot-card">
+            <h3>Health & Wellness AI</h3>
+            <p>Your companion for wellness tips, symptom analysis guide, exercise strategies, and dietary options.</p>
+          </div>
+
+          <div class="suggestions-panel">
+            <h4>Quick Wellness Topics</h4>
+            <div class="suggestion-chips">
+              <button class="chip" data-question="What are some high-protein foods for a heart-healthy diet?">🥦 Healthy Foods</button>
+              <button class="chip" data-question="How can I improve my sleep routine naturally?">😴 Sleep Quality</button>
+              <button class="chip" data-question="What are standard natural remedies for a tension headache?">🤕 Mild Headache</button>
+              <button class="chip" data-question="Show me a quick 10-minute morning stretch sequence.">🧘 Morning Stretch</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-footer">
+          <p>© 2026 nnamdibot Assistant</p>
+        </div>
+      </aside>
+
+      <!-- Right Chat Container -->
+      <main class="chat-container">
+        <header class="chat-header">
+          <!-- Mobile Menu Trigger -->
+          <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Sidebar">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+          
+          <div class="chat-header-info">
+            <h2>nnamdibot Chat</h2>
+            <p class="subtitle">General Health & Wellness Guidance</p>
+          </div>
+        </header>
+
+        <div class="chat-messages" id="chatMessages">
+          <div class="message assistant-message">
+            <div class="message-bubble">
+              Hi! I'm <strong>nnamdibot</strong>, your Health & Wellness Assistant. 
+              <br><br>
+              How can I help you today? Feel free to ask about nutrition, sleep, symptoms, or exercise.
+            </div>
+          </div>
+        </div>
+
+        <div class="chat-input-wrapper">
+          <form id="chatForm" class="chat-input-form">
+            <input 
+              type="text" 
+              id="messageInput" 
+              placeholder="Ask a wellness question or choose a topic on the left..." 
+              autocomplete="off"
+            />
+            <button type="submit" id="sendButton">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </main>
+    </div>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
