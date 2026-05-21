@@ -116,11 +116,13 @@ chatForm.addEventListener('submit', async (e) => {
   appendMessage('user', content);
   messagesHistory.push({ role: 'user', content });
   
-  // Show typing indicator and set robot visual state to thinking
+  // Set robot visual state to thinking
   const typingIndicator = addTypingIndicator();
   setRobotState('thinking');
   
-  const API_URL = import.meta.env.DEV ? `http://${window.location.hostname}:8000` : '';
+  // Runtime check: Use relative URLs on production (Vercel), use port 8000 for local dev
+  const isProd = window.location.port === '' || window.location.port === '80' || window.location.port === '443';
+  const API_URL = isProd ? '' : `http://${window.location.hostname}:8000`;
   
   try {
     const response = await fetch(`${API_URL}/api/chat`, {
