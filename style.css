@@ -35,6 +35,7 @@ body {
   background-color: var(--bg-darker);
   color: var(--text-primary);
   height: 100vh;
+  height: 100dvh;
   width: 100vw;
   display: flex;
   justify-content: center;
@@ -85,6 +86,7 @@ body {
   width: 95vw;
   max-width: 1200px;
   height: 90vh;
+  height: 90dvh;
   background: var(--bg-card);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
@@ -647,6 +649,7 @@ body {
     grid-template-columns: 280px 1fr;
     width: 98vw;
     height: 95vh;
+    height: 95dvh;
   }
   .robot-svg {
     width: 140px;
@@ -663,6 +666,7 @@ body {
     grid-template-columns: 1fr;
     width: 100vw;
     height: 100vh;
+    height: 100dvh;
     border-radius: 0;
     border: none;
   }
@@ -671,6 +675,36 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  
+  /* Optimize header padding for mobile */
+  .chat-header {
+    padding: 16px 20px;
+  }
+  
+  .chat-header-info h2 {
+    font-size: 17px;
+  }
+  
+  /* Optimize message bubble content size for mobile */
+  .chat-messages {
+    padding: 16px 12px;
+    gap: 14px;
+  }
+  
+  .message-bubble {
+    padding: 11px 15px;
+    font-size: 13.5px;
+  }
+  
+  /* Optimize bottom input padding for mobile */
+  .chat-input-wrapper {
+    padding: 12px 14px;
+  }
+  
+  #messageInput {
+    padding: 10px 14px;
+    font-size: 13.5px;
   }
 
   /* Slide-out Off-canvas Drawer for Left Sidebar */

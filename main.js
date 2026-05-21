@@ -132,7 +132,9 @@ chatForm.addEventListener('submit', async (e) => {
     });
     
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      const errorData = await response.json().catch(() => ({}));
+      const errorMsg = errorData.detail || 'Network response was not ok';
+      throw new Error(errorMsg);
     }
     
     const data = await response.json();
@@ -145,7 +147,7 @@ chatForm.addEventListener('submit', async (e) => {
   } catch (error) {
     console.error('Error:', error);
     removeTypingIndicator(typingIndicator);
-    appendMessage('system', 'Sorry, I encountered an error. Please try again.');
+    appendMessage('system', `Error: ${error.message || 'Sorry, I encountered an error. Please try again.'}`);
     // Pop the user message so they can try again if they want
     messagesHistory.pop();
   } finally {
